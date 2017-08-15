@@ -1,0 +1,6 @@
+*.css.map
+origapp
+#ngrok
+ngrok
+node_modules
+env.sh

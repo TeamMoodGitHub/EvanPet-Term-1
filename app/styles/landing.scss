@@ -1,0 +1,79 @@
+html, body {
+	height: 100%;
+  margin: 0;
+  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #222;
+	max-width: 1000px;
+}
+
+.wrapper {
+	text-align: center;
+	min-height: 100%;
+	background-color: #222; 
+}
+            
+.LandingHeader {
+  background-color: #222;
+	color: white;
+	align-items: center;
+}
+
+.Title {
+	
+}
+
+.imgWrapper {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		height: 85vh;
+}
+
+img.LandingImage {
+		width: 100vw;
+		margin-top: 0;
+		margin-top: 15vh;
+}
+
+div.wrapper{
+	float:left; /* important */
+	position:relative; /* important(so we can absolutely position the description div */
+}
+
+div.description {
+	position: absolute; /* absolute position (so we can position it where we want)*/
+	bottom: 25%; /* position will be on bottom */
+	left: 35%;
+	width: 27%;
+
+	/* styling bellow */
+	background-color:black;
+	color:white;
+	opacity:0.8; /* transparency */
+	filter:alpha(opacity=80); /* IE transparency */
+}
+
+div.leaderboard {
+	position: absolute; /* absolute position (so we can position it where we want)*/
+	bottom: 25%; /* position will be on bottom */
+	left: 35%;
+	width: 27%;
+
+	/* styling bellow */
+	background-color:black;
+	color:white;
+	opacity:0.8; /* transparency */
+	filter:alpha(opacity=80); /* IE transparency */
+}
+
+p.description_content{
+	padding:10px;
+	margin:0px;
+	font-size: 30px;
+}
+
+.registerContainer {
+	background-color: black;
+}
