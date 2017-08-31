@@ -4,3 +4,4 @@ origapp
 ngrok
 node_modules
 env.sh
+yarn.lock

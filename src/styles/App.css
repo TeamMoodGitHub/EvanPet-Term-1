@@ -1,0 +1,29 @@
+html body {
+    background-color: #222;
+}
+
+.container {
+    background-color: darkgray;
+}
+
+.post-container {
+    background-color: white;
+}
+
+
+.leaderboard-header {
+    background-color: white;
+}
+
+.dropdown {
+    align-items: center;
+}
+
+.summoner-info{
+    border-color: black;
+    margin: 10px;
+}
+.form-container {
+    margin: 10px;
+    background-color: white;
+}
