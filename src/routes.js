@@ -12,6 +12,6 @@ export default (
         {/* <Route exact path="/" component={<h3>Landing page!</h3>} /> */}
         {/* <Route exact path="/login" component={LoginPage} /> */}
         {/* <Route exact path="/register" component={RegisterPage} /> */}
-         <Route exact path="/leaderboard" component={Leaderboard} /> 
+        <Route exact path="/leaderboard" component={Leaderboard} />
     </Switch>
 );

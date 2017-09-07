@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.2.0",
-    "kindred-api": "^2.0.83",
-    "lodash": "^4.17.4",
     "mathjs": "^3.16.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

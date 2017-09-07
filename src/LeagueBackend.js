@@ -17,7 +17,7 @@ export const getMatchDataByMatchId = (matchId) => {
 };
 
 export const getRecentRankedGamesBySummonerId = (summonerId) => {
-    console.log("id in function", summonerId)
+    console.log('id in function', summonerId);
     return fetch(`${api}/getRecentRankedGamesBySummonerId/${summonerId}`)
         .then((response) => response.json())
         .catch(err => err);
@@ -29,7 +29,7 @@ export const getRunePagesBySummonerId = (summonerId) => {
         .catch(err => err);
 };
 
-export const dataFetcher = async (summonerName) => {
+export const dataFetcher = async(summonerName) => {
     // // Get the summoner data by their name
 
     // Get the most recent matches for the player
@@ -38,31 +38,29 @@ export const dataFetcher = async (summonerName) => {
     let recentRankedGames;
     if(summonerId) {
         recentRankedGames = await getRecentRankedGamesBySummonerId(summonerId);
-
     }
     if(recentRankedGames.matches) {
-
     // this will have an array of objs that will contain different stats
-    const allMatchData = await Promise.all(_(recentRankedGames.matches).map(async (singleGame) => {
-        if(singleGame) {
+        const allMatchData = await Promise.all(_(recentRankedGames.matches).map(async(singleGame) => {
+            if(singleGame) {
             // Get a single match by match id
-            const singleMatchData = await getMatchDataByMatchId(singleGame.gameId);
-            // Get player stats we want from the 1 game they played
-            if(singleMatchData) {
-                const playerStats = _(singleMatchData.participants).filter((player) => {
-                    return player.championId === singleGame.champion;
-                })[0].stats;
-                return {kills: playerStats.kills, deaths: playerStats.deaths, assists: playerStats.assists};
+                const singleMatchData = await getMatchDataByMatchId(singleGame.gameId);
+                // Get player stats we want from the 1 game they played
+                if(singleMatchData) {
+                    const playerStats = _(singleMatchData.participants).filter((player) => {
+                        return player.championId === singleGame.champion;
+                    })[0].stats;
+                    return {kills: playerStats.kills, deaths: playerStats.deaths, assists: playerStats.assists};
+                }
             }
-        }
-    }));
-    const statsObj = {
-        kills: math.round(getAvgOfData(allMatchData, 'kills')),
-        deaths: math.round(getAvgOfData(allMatchData, 'deaths')),
-        assists: math.round(getAvgOfData(allMatchData, 'assists')),
-    }
-    console.log("End Stats: ", statsObj);
-    return statsObj;
+        }));
+        const statsObj = {
+            kills: math.round(getAvgOfData(allMatchData, 'kills')),
+            deaths: math.round(getAvgOfData(allMatchData, 'deaths')),
+            assists: math.round(getAvgOfData(allMatchData, 'assists')),
+        };
+        console.log('End Stats: ', statsObj);
+        return statsObj;
     }
 };
 
@@ -71,7 +69,6 @@ export const dataFetcher = async (summonerName) => {
  * @param {array} dataCollection 
  */
 const getAvgOfData = (dataList, key) => {
-    
     let numElements = 0;
     let sum = 0;
     _(dataList).each((dataObj) => {
@@ -79,8 +76,7 @@ const getAvgOfData = (dataList, key) => {
             numElements += 1;
             sum += dataObj[key];
         }
-        
     });
-    console.log("Sum: ", sum);
+    console.log('Sum: ', sum);
     return (sum / numElements);
-}
+};

@@ -6,13 +6,13 @@ class Test extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    
+
     async handleSubmit(e) {
         e.preventDefault();
-        console.log("Testing!");
+        console.log('Testing!');
         const summonerName = 'vibot';
         const summonerData = await dataFetcher(summonerName);
-        console.log("data: ", summonerData);
+        console.log('data: ', summonerData);
     }
 
     render() {

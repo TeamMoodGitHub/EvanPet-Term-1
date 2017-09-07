@@ -6,7 +6,6 @@ import { Field, reduxForm, reset } from 'redux-form';
 import { dataFetcher } from './LeagueBackend';
 import './styles/App.css';
 class Leaderboard extends Component {
-
     componentWillMount() {
         this.props.getPosts();
     }
@@ -38,15 +37,15 @@ class Leaderboard extends Component {
                 <div className="summoner-info" key={key}>
                     <h3>{`${count++}. ${post.summoner}`}</h3>
                     <p>{`Avg K/D/A: ${post.stats.kills}/${post.stats.deaths}/${post.stats.assists}`}</p>
-                    <button className="btn btn-primary" onClick={() => { this.getUpdatedData(post._id, post.summoner) }}>Update</button>
-                    <button className="btn btn-danger" onClick={() => { this.props.deletePost(post._id) }}>Delete</button>
+                    <button className="btn btn-primary" onClick={() => { this.getUpdatedData(post._id, post.summoner); }}>Update</button>
+                    <button className="btn btn-danger" onClick={() => { this.props.deletePost(post._id); }}>Delete</button>
                 </div>
-            )
+            );
         });
     }
 
     renderField(field) {
-        return (<input type='text' {...field.input} placeholder={`${field.label} name...`} />);
+        return (<input type="text" {...field.input} placeholder={`${field.label} name...`} />);
     }
 
     async onSubmit(values) {
@@ -64,10 +63,10 @@ class Leaderboard extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-xs-4 offset-4'>
-                        <div className='leaderboard-header'>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-4 offset-4">
+                        <div className="leaderboard-header">
                             <h1> Leaderboard! </h1>
                             <div className="dropdown col-xs-4 offset-4">
                                 <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,16 +84,16 @@ class Leaderboard extends Component {
                             {this.renderPosts()}
                         </div>
 
-                        <div className='form-container col-xs-4 offset-4'>
+                        <div className="form-container col-xs-4 offset-4">
 
                             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                                 <Field
-                                    name='summoner'
+                                    name="summoner"
                                     component={this.renderField}
-                                    label='summoner'
-                                    className=''
+                                    label="summoner"
+                                    className=""
                                 />
-                                <button type='sumbit'>Add</button>
+                                <button type="sumbit">Add</button>
                             </form>
                         </div>
                     </div>
