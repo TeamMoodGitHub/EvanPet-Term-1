@@ -4,7 +4,7 @@ export const FETCH_POSTS = 'FETCH_POSTS';
 /**
  * Listener for when our DB changes.  When it does, we dispatch an action to get the posts
  */
-export const getSummoners = () => {
+export const getPosts = () => {
     return dispatch => {
         database.on('value', data => {
             dispatch({

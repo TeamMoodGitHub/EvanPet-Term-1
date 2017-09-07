@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
 import { connect } from 'react-redux';
-import { getPosts, savePost, deletePost, updatePost, updateSelector } from './actions/postActions';
+import { getPosts, savePost, deletePost, updatePost, updateSelector } from '../actions/postActions';
 import { Field, reduxForm, reset } from 'redux-form';
-import './styles/App.css';
-import { dataFetcher } from './LeagueBackend';
+import '../styles/App.css';
+import { dataFetcher } from '../backend/leagueBackend';
 
 class App extends Component {
     componentWillMount() {
