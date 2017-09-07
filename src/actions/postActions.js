@@ -1,4 +1,4 @@
-import { database } from '../firebase';
+import { database } from '../backend/firebase';
 export const FETCH_POSTS = 'FETCH_POSTS';
 
 /**

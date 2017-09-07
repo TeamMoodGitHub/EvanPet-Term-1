@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'underscore';
 import { connect } from 'react-redux';
 import { getPosts, savePost, deletePost, updatePost, updateSelector } from './actions/postActions';
@@ -13,8 +14,6 @@ class App extends Component {
 
     // when rendering the posts, we can render them depending on the sort method that is selected!
     renderPosts() {
-        console.log(this.props.posts);
-
         const copied = Object.assign({}, this.props.posts);
         const selector = copied.selector;
         delete copied.selector;
@@ -57,7 +56,7 @@ class App extends Component {
     async getUpdatedData(key, summoner) {
     // const newData = await dataFetcher(summoner);
     // this.props.updatePost(key, newData);
-        return;
+        return summoner;
     }
 
 
@@ -102,6 +101,15 @@ class App extends Component {
         );
     }
 }
+App.propTypes = {
+    dispatch: PropTypes.func,
+    getPosts: PropTypes.func,
+    deletePost: PropTypes.func,
+    updateSelector: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    posts: PropTypes.object,
+
+};
 
 let form = reduxForm({
     form: 'NewPost',
